@@ -2,7 +2,7 @@ const {resolve} = require('path');
 const express = require('express');
 const compression = require('compression');
 
-const clientBuildPath = resolve(__dirname, '..', 'src', 'client');
+const clientBuildPath = resolve(__dirname, '..', 'src', 'build');
 
 module.exports = function setup(app) {
   app.use(compression());
@@ -11,3 +11,6 @@ module.exports = function setup(app) {
   // all other requests be handled by UI itself
   app.get('*', (req, res) => res.sendFile(resolve(clientBuildPath, 'index.html')));
 };
+
+
+//REMEMBER TO NPM INSTALL compression package
